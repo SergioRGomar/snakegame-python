@@ -16,7 +16,6 @@ class Snake():
         self.speed = 0.8
         self.aux = 0
         self.direction = 4
-
         self.length = 3
         self.head = 0 
         self.body_positions = []

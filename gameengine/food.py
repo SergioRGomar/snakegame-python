@@ -5,9 +5,8 @@ class Food():
         self.sideSquare = 20
         self.pos_x = int(random.randrange(0, 500, self.sideSquare))
         self.pos_y = int(random.randrange(0, 500, self.sideSquare))
-
         self.drawable = 0
-
+        
         self.screen = screen
 
     def generateNewPosition(self):

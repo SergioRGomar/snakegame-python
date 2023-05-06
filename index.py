@@ -3,7 +3,6 @@ from gameengine.game import Game
 from gameengine.snake import Snake
 from gameengine.food import Food
 
-
 pygame.init()
 size = (500,500)
 screen = pygame.display.set_mode(size,pygame.RESIZABLE | pygame.SCALED)

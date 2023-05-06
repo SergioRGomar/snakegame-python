@@ -14,6 +14,7 @@ class Game():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+                
             if event.type == pygame.KEYDOWN:
                   # Move snake
                 if event.key == pygame.K_w:
