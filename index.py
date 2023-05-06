@@ -1,13 +1,13 @@
-import pygame, sys
+from gameengine.game import Game
 
-pygame.init()
-
-size = (500,500)
-screen = pygame.display.set_mode(size)
-
+objGame = Game()
 
 while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
+    objGame.handleEvents()
+
+    objGame.drawScenario()
+
+       # --- Colliders
+
+    objGame.update()
+  
