@@ -16,5 +16,16 @@ class Snake(Game):
         self.pos_x = 220
         self.pos_y = 220
 
+        self.speed = 0.8
+        self.aux = 0
+
+
     def emit(self):
-        self.cabeza = pygame.draw.rect(self.screen, green, (self.pos_x,self.pos_y,self.sideSquare,self.sideSquare))
+        self.head = pygame.draw.rect(self.screen, green, (self.pos_x,self.pos_y,self.sideSquare,self.sideSquare))
+
+    def move(self):
+        self.aux += self.speed # steps
+
+        if(self.aux > 20):
+            self.pos_x+=20
+            self.aux = 0

@@ -7,6 +7,7 @@ class Game():
         size = (500,500)
         self.screen = pygame.display.set_mode(size,pygame.RESIZABLE | pygame.SCALED)
         pygame.display.set_caption('Snake Game - pygame')
+        self.clock = pygame.time.Clock()
 
     def handleEvents(self):
         for event in pygame.event.get():
@@ -24,3 +25,4 @@ class Game():
         
     def update(self):
         pygame.display.flip()
+        self.clock.tick(30)
