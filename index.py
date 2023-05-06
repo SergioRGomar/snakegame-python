@@ -8,11 +8,8 @@ size = (500,500)
 screen = pygame.display.set_mode(size,pygame.RESIZABLE | pygame.SCALED)
 pygame.display.set_caption('Snake Game - pygame')
 
-
 objSnake = Snake(screen) 
-
 objGame = Game(screen,objSnake)
-
 
 while True:
   
@@ -23,8 +20,6 @@ while True:
     objGame.fill()
     objGame.drawScenario()
     
-    objSnake.emit()
+    objSnake.draw()
     
-
     objGame.update()
-  
