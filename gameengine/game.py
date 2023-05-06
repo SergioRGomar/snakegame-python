@@ -57,5 +57,3 @@ class Game():
         self.objFood.generateNewPosition()
         self.objSnake.incrementSpeed()
         self.objSnake.length+=1
-
-        print(self.points)
