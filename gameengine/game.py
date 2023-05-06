@@ -2,6 +2,7 @@ import pygame, sys
 
 class Game():
     def __init__(self,screen,objSnake,objFood):
+        self.points = 0
         self.clock = pygame.time.Clock()
         self.sideSquare = 20
 
@@ -14,7 +15,7 @@ class Game():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-                
+
             if event.type == pygame.KEYDOWN:
                   # Move snake
                 if event.key == pygame.K_w:
@@ -41,6 +42,20 @@ class Game():
     def handleCollisions(self):
             # detect if snake eat a food
         if self.objFood.drawable.colliderect(self.objSnake.head):
-            self.objFood.generateNewPosition()
-            self.objSnake.incrementSpeed()
-            self.objSnake.length+=1
+            self.incrementPoints()
+
+        for body_element in self.objSnake.body_drawable:
+            if body_element.colliderect(self.objSnake.head):
+                self.gameOver()
+    
+    def gameOver(self):
+        self.points = 0
+        self.objSnake.restart()
+
+    def incrementPoints(self):
+        self.points+=1
+        self.objFood.generateNewPosition()
+        self.objSnake.incrementSpeed()
+        self.objSnake.length+=1
+
+        print(self.points)

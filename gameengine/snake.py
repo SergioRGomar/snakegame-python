@@ -64,6 +64,17 @@ class Snake():
             if self.direction == 4:
                 self.pos_x+=20
 
+            # detects if snake goes off the board
+            if self.pos_x == 500 and self.direction == 4:
+                self.pos_x = 0
+            if self.pos_x < 0 and self.direction == 2:
+                self.pos_x = 480
+
+            if self.pos_y == 500 and self.direction == 3:
+                self.pos_y = 0
+            if self.pos_y < 0 and self.direction == 1:
+                self.pos_y = 480
+
             self.aux = 0
 
     def setDirection(self,direction):
@@ -81,3 +92,12 @@ class Snake():
 
         if invalid_movement_flag:
             self.direction = direction
+    
+    def restart(self):
+        self.pos_x = 220
+        self.pos_y = 220
+        self.length = 3
+        self.speed = 0.8
+        self.direction = 4
+        self.body_positions = []
+        self.initTail()
