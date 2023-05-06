@@ -1,19 +1,30 @@
 import pygame, sys
 
+
+
 class Game():
-    def __init__(self):
-        pygame.init()
-        self.sideSquare = 20
-        size = (500,500)
-        self.screen = pygame.display.set_mode(size,pygame.RESIZABLE | pygame.SCALED)
-        pygame.display.set_caption('Snake Game - pygame')
+    def __init__(self,screen,objSnake):
         self.clock = pygame.time.Clock()
+        self.sideSquare = 20
+
+        self.screen = screen
+        self.objSnake = objSnake
 
     def handleEvents(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+            if event.type == pygame.KEYDOWN:
+                  # Move snake
+                if event.key == pygame.K_w:
+                    self.objSnake.setDirection(1)
+                if event.key == pygame.K_a:
+                    self.objSnake.setDirection(2)
+                if event.key == pygame.K_s:
+                    self.objSnake.setDirection(3)
+                if event.key == pygame.K_d:
+                    self.objSnake.setDirection(4)     
 
     def fill(self):
         self.screen.fill((12,12,12))
@@ -25,4 +36,4 @@ class Game():
         
     def update(self):
         pygame.display.flip()
-        self.clock.tick(30)
+        self.clock.tick(120)
