@@ -1,12 +1,13 @@
 import pygame, sys
 
 class Game():
-    def __init__(self,screen,objSnake):
+    def __init__(self,screen,objSnake,objFood):
         self.clock = pygame.time.Clock()
         self.sideSquare = 20
 
         self.screen = screen
         self.objSnake = objSnake
+        self.objFood = objFood
 
     def handleEvents(self):
         for event in pygame.event.get():
@@ -35,3 +36,10 @@ class Game():
     def update(self):
         pygame.display.flip()
         self.clock.tick(120)
+
+    def handleCollisions(self):
+            # detect if snake eat a food
+        if self.objFood.drawable.colliderect(self.objSnake.head):
+            self.objFood.generateNewPosition()
+            self.objSnake.incrementSpeed()
+            self.objSnake.length+=1

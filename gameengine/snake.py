@@ -18,7 +18,7 @@ class Snake():
         self.direction = 4
 
         self.length = 3
-        self.head_drawable = 0 
+        self.head = 0 
         self.body_positions = []
         self.body_drawable = []
 
@@ -38,6 +38,9 @@ class Snake():
         self.body_drawable = []
         for posicion in self.body_positions:
             self.body_drawable.append(pygame.draw.rect(self.screen, green_cola, (posicion[0],posicion[1],self.sideSquare,self.sideSquare)))
+   
+    def incrementSpeed(self):
+        self.speed+=0.1
 
     def move(self):
         self.aux += self.speed # steps

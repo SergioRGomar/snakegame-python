@@ -1,7 +1,6 @@
-import pygame, sys
-
-from gameengine.snake import Snake
+import pygame
 from gameengine.game import Game
+from gameengine.snake import Snake
 from gameengine.food import Food
 
 
@@ -12,7 +11,7 @@ pygame.display.set_caption('Snake Game - pygame')
 
 objSnake = Snake(screen) 
 objFood = Food(screen) 
-objGame = Game(screen,objSnake)
+objGame = Game(screen,objSnake,objFood)
 
 while True:
   
@@ -25,5 +24,7 @@ while True:
     
     objSnake.draw()
     objFood.draw()
+
+    objGame.handleCollisions()
     
     objGame.update()
