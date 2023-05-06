@@ -2,6 +2,8 @@ import pygame, sys
 
 from gameengine.snake import Snake
 from gameengine.game import Game
+from gameengine.food import Food
+
 
 pygame.init()
 size = (500,500)
@@ -9,6 +11,7 @@ screen = pygame.display.set_mode(size,pygame.RESIZABLE | pygame.SCALED)
 pygame.display.set_caption('Snake Game - pygame')
 
 objSnake = Snake(screen) 
+objFood = Food(screen) 
 objGame = Game(screen,objSnake)
 
 while True:
@@ -21,5 +24,6 @@ while True:
     objGame.drawScenario()
     
     objSnake.draw()
+    objFood.draw()
     
     objGame.update()

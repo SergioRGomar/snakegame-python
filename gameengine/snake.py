@@ -43,7 +43,6 @@ class Snake():
         self.aux += self.speed # steps
 
         if(self.aux > 20):
-            
             # new tail position 
                 # this is my "tail to head algorithm", 
                 # this consist in remove the last position of tail an colocate in the current head position 
