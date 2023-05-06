@@ -14,10 +14,13 @@ class Game():
                 pygame.quit()
                 sys.exit()
 
+    def fill(self):
+        self.screen.fill((12,12,12))
+
     def drawScenario(self):
         for i in range(25):
             for j in range(25):
-                pygame.draw.rect(self.screen, (12,12,12), (i*self.sideSquare,j*self.sideSquare,self.sideSquare-1,self.sideSquare-1))
+                pygame.draw.rect(self.screen, (30,30,30), (i*self.sideSquare,j*self.sideSquare,self.sideSquare-1,self.sideSquare-1))
         
     def update(self):
         pygame.display.flip()
