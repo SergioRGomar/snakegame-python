@@ -1,4 +1,5 @@
 import random, pygame
+from globals.colors import Color
 
 class Food():
     def __init__(self,screen):
@@ -14,4 +15,4 @@ class Food():
         self.pos_y = int(random.randrange(0, 500, self.sideSquare))
 
     def draw(self):
-        self.drawable = pygame.draw.rect(self.screen, (29,38,231), (self.pos_x+3,self.pos_y+3,self.sideSquare-6,self.sideSquare-6),0,3)
+        self.drawable = pygame.draw.rect(self.screen, Color.RED, (self.pos_x+3,self.pos_y+3,self.sideSquare-6,self.sideSquare-6),0,3)

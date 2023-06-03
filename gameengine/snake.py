@@ -1,12 +1,5 @@
 import pygame
-from .game import Game
-
-green_cola = (106,160,26)
-green = (127,236,17)
-gray = (30,30,30)
-red = (230,38,13)
-blue = (20,77,100)
-white = (0,0,0)
+from globals.colors import Color
 
 class Snake():
     def __init__(self,screen):
@@ -31,12 +24,12 @@ class Snake():
 
     def draw(self):
         # draw head
-        self.head = pygame.draw.rect(self.screen, green, (self.pos_x,self.pos_y,self.sideSquare,self.sideSquare))
+        self.head = pygame.draw.rect(self.screen, Color.HEAD, (self.pos_x,self.pos_y,self.sideSquare,self.sideSquare))
 
         # draw tail
         self.body_drawable = []
         for posicion in self.body_positions:
-            self.body_drawable.append(pygame.draw.rect(self.screen, green_cola, (posicion[0],posicion[1],self.sideSquare,self.sideSquare)))
+            self.body_drawable.append(pygame.draw.rect(self.screen, Color.BODY , (posicion[0],posicion[1],self.sideSquare,self.sideSquare)))
    
     def incrementSpeed(self):
         self.speed+=0.1

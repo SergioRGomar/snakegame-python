@@ -1,4 +1,5 @@
 import pygame, sys
+from globals.colors import Color
 
 class Game():
     def __init__(self,screen,objSnake,objFood):
@@ -28,12 +29,12 @@ class Game():
                     self.objSnake.setDirection(4)     
 
     def fill(self):
-        self.screen.fill((12,12,12))
+        self.screen.fill(Color.rgb(12,12,12))
 
     def drawScenario(self):
         for i in range(25):
             for j in range(25):
-                pygame.draw.rect(self.screen, (30,30,30), (i*self.sideSquare,j*self.sideSquare,self.sideSquare-1,self.sideSquare-1))
+                pygame.draw.rect(self.screen, Color.GRAY , (i*self.sideSquare,j*self.sideSquare,self.sideSquare-1,self.sideSquare-1))
         
     def update(self):
         pygame.display.flip()
